@@ -12,7 +12,7 @@ export default function CropTooltip({ name, savings, description }: Props) {
       className="absolute pointer-events-none rounded-[20px] p-3"
       style={{
         bottom: '110%', left: '50%', transform: 'translateX(-50%)',
-        width: 176, zIndex: 50,
+        width: 240, zIndex: 50,
         backgroundColor: '#FFF8F0',
         border: '3px solid #4A1942',
         boxShadow: 'inset -2px -2px 8px rgba(0,0,0,0.10), 4px 6px 12px rgba(0,0,0,0.18)',

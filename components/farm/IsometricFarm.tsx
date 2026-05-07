@@ -9,7 +9,7 @@ import { fadeUpVariants } from '@/lib/animations'
 
 export default function IsometricFarm() {
   return (
-    <SectionWrapper id="farm" className="py-20 overflow-hidden"
+    <SectionWrapper id="farm" className="py-20"
       style={{ background: 'linear-gradient(180deg, rgba(34,197,94,0.15) 0%, #FFF8F0 100%)' }}>
       <motion.div variants={fadeUpVariants} custom={0} className="text-center mb-12 px-6">
         <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Fredoka, sans-serif', color: '#4A1942' }}>
@@ -21,8 +21,8 @@ export default function IsometricFarm() {
       </motion.div>
 
       <motion.div variants={fadeUpVariants} custom={1} className="relative max-w-3xl mx-auto px-6">
-        <div className="relative rounded-[28px] p-8 overflow-hidden"
-          style={{ backgroundColor: 'rgba(34,197,94,0.2)', border: '4px solid #8B5E3C', minHeight: 420 }}>
+        <div className="relative rounded-[28px] p-8"
+          style={{ backgroundColor: 'rgba(34,197,94,0.2)', border: '4px solid #8B5E3C', minHeight: 420, overflow: 'visible' }}>
           {/* Fence top */}
           <div className="absolute top-0 left-0 right-0 flex justify-around">
             {Array.from({ length: 14 }).map((_, i) => (

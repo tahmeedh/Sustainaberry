@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import DayNightToggle from './DayNightToggle'
 import Button from './Button'
 
@@ -34,7 +35,8 @@ export default function Navbar() {
           className="flex items-center gap-2 no-underline"
           style={{ fontFamily: 'Fredoka, sans-serif', fontSize: '1.5rem', fontWeight: 700, color: '#FFF8F0' }}
         >
-          <span className="text-3xl">🫐</span> Sustainaberry
+          <Image src="/logo.jpg" alt="Sustainaberry" width={44} height={44} className="rounded-full object-cover" style={{ border: '2px solid rgba(233,30,140,0.5)' }} />
+          Sustainaberry
         </motion.a>
 
         {/* Desktop nav */}
