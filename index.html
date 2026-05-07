@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainaberry | Sustainable Berry Farming</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Fixed Score Board -->
+  <div class="scoreboard" id="scoreboard">
+    <span class="sb-icon">🍓</span>
+    <span class="sb-label">Harvested:</span>
+    <span class="sb-value" id="scoreValue">0</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="nav-logo-berry">🍓</span>
+      <span class="nav-logo-text">SUSTAINABERRY</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#berries">Our Berries</a></li>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Shop Now 🛒</button>
+  </nav>
+
+  <!-- ══════════════ FARM HERO SCENE ══════════════ -->
+  <section class="farm-hero" id="farm-hero">
+
+    <!-- Layer 1: Sky -->
+    <div class="sky-layer">
+
+      <!-- Sun -->
+      <div class="sun">
+        <div class="sun-halo"></div>
+        <div class="sun-rays-wrap">
+          <div class="sun-ray" style="--a:0deg"></div>
+          <div class="sun-ray" style="--a:30deg"></div>
+          <div class="sun-ray" style="--a:60deg"></div>
+          <div class="sun-ray" style="--a:90deg"></div>
+          <div class="sun-ray" style="--a:120deg"></div>
+          <div class="sun-ray" style="--a:150deg"></div>
+          <div class="sun-ray" style="--a:180deg"></div>
+          <div class="sun-ray" style="--a:210deg"></div>
+          <div class="sun-ray" style="--a:240deg"></div>
+          <div class="sun-ray" style="--a:270deg"></div>
+          <div class="sun-ray" style="--a:300deg"></div>
+          <div class="sun-ray" style="--a:330deg"></div>
+        </div>
+        <div class="sun-core"></div>
+      </div>
+
+      <!-- Clouds -->
+      <div class="cloud cloud-a"><div class="cp cp1"></div><div class="cp cp2"></div><div class="cp cp3"></div></div>
+      <div class="cloud cloud-b"><div class="cp cp1"></div><div class="cp cp2"></div><div class="cp cp3"></div></div>
+      <div class="cloud cloud-c"><div class="cp cp1"></div><div class="cp cp2"></div><div class="cp cp3"></div></div>
+      <div class="cloud cloud-d"><div class="cp cp1"></div><div class="cp cp2"></div><div class="cp cp3"></div></div>
+      <div class="cloud cloud-e"><div class="cp cp1"></div><div class="cp cp2"></div><div class="cp cp3"></div></div>
+
+      <!-- Birds -->
+      <div class="bird bird-1"><div class="bw bw-l"></div><div class="bw bw-r"></div></div>
+      <div class="bird bird-2"><div class="bw bw-l"></div><div class="bw bw-r"></div></div>
+      <div class="bird bird-3"><div class="bw bw-l"></div><div class="bw bw-r"></div></div>
+    </div>
+
+    <!-- Layer 2: Hills (SVG) -->
+    <div class="hills-layer">
+      <svg class="hill hill-back" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,220 Q180,80 360,160 Q540,240 720,130 Q900,20 1080,110 Q1260,200 1440,120 L1440,320 L0,320 Z" fill="#2E8B57"/>
+      </svg>
+      <svg class="hill hill-mid" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,190 Q200,90 400,150 Q600,210 800,110 Q1000,10 1200,100 Q1360,160 1440,130 L1440,280 L0,280 Z" fill="#3CB371"/>
+      </svg>
+      <svg class="hill hill-front" viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,150 Q240,50 480,120 Q720,190 960,80 Q1200,-10 1440,70 L1440,220 L0,220 Z" fill="#52C96E"/>
+      </svg>
+    </div>
+
+    <!-- Layer 3: Ground -->
+    <div class="ground-layer">
+      <!-- Plowed soil strip -->
+      <div class="soil-strip"></div>
+
+      <!-- Berry crop plants (clickable!) -->
+      <div class="crop-row" id="cropRow">
+
+        <div class="crop-plant" data-berry="🍓" data-name="Raspberry" onclick="harvestPlant(this)">
+          <div class="crop-pot">
+            <div class="crop-leaf crop-leaf-l"></div>
+            <div class="crop-leaf crop-leaf-r"></div>
+            <div class="crop-berries">
+              <span>🍓</span><span>🍓</span><span>🍓</span>
+            </div>
+          </div>
+          <div class="crop-nameplate">Raspberry</div>
+        </div>
+
+        <div class="crop-plant" data-berry="🫐" data-name="Blueberry" onclick="harvestPlant(this)">
+          <div class="crop-pot">
+            <div class="crop-leaf crop-leaf-l"></div>
+            <div class="crop-leaf crop-leaf-r"></div>
+            <div class="crop-berries">
+              <span>🫐</span><span>🫐</span><span>🫐</span>
+            </div>
+          </div>
+          <div class="crop-nameplate">Blueberry</div>
+        </div>
+
+        <div class="crop-plant" data-berry="🍓" data-name="Strawberry" onclick="harvestPlant(this)">
+          <div class="crop-pot">
+            <div class="crop-leaf crop-leaf-l"></div>
+            <div class="crop-leaf crop-leaf-r"></div>
+            <div class="crop-berries">
+              <span>🍓</span><span>🍓</span><span>🍓</span>
+            </div>
+          </div>
+          <div class="crop-nameplate">Strawberry</div>
+        </div>
+
+        <div class="crop-plant" data-berry="🍇" data-name="Blackberry" onclick="harvestPlant(this)">
+          <div class="crop-pot">
+            <div class="crop-leaf crop-leaf-l"></div>
+            <div class="crop-leaf crop-leaf-r"></div>
+            <div class="crop-berries">
+              <span>🍇</span><span>🍇</span><span>🍇</span>
+            </div>
+          </div>
+          <div class="crop-nameplate">Blackberry</div>
+        </div>
+
+        <div class="crop-plant" data-berry="🍒" data-name="Cranberry" onclick="harvestPlant(this)">
+          <div class="crop-pot">
+            <div class="crop-leaf crop-leaf-l"></div>
+            <div class="crop-leaf crop-leaf-r"></div>
+            <div class="crop-berries">
+              <span>🍒</span><span>🍒</span><span>🍒</span>
+            </div>
+          </div>
+          <div class="crop-nameplate">Cranberry</div>
+        </div>
+
+      </div>
+
+      <!-- Tractor -->
+      <div class="tractor" id="tractor">
+        <svg viewBox="0 0 150 95" xmlns="http://www.w3.org/2000/svg">
+          <!-- Smoke puffs -->
+          <circle class="smoke s1" cx="74" cy="9" r="6" fill="#BDBDBD" opacity="0.7"/>
+          <circle class="smoke s2" cx="70" cy="3" r="4" fill="#CFD8DC" opacity="0.5"/>
+          <!-- Exhaust -->
+          <rect x="70" y="12" width="7" height="16" rx="2" fill="#424242"/>
+          <!-- Cab glass -->
+          <rect x="62" y="16" width="46" height="30" rx="5" fill="#FFCDD2"/>
+          <rect x="67" y="20" width="36" height="22" rx="3" fill="#B3E5FC" opacity="0.85"/>
+          <!-- Driver head -->
+          <circle cx="85" cy="28" r="7" fill="#FFCC80"/>
+          <rect cx="78" cy="24" width="14" height="5" rx="2" fill="#4A148C"/>
+          <!-- Body -->
+          <rect x="18" y="34" width="78" height="30" rx="6" fill="#E53935"/>
+          <!-- Body accent stripe -->
+          <rect x="18" y="52" width="78" height="8" rx="0" fill="#C62828"/>
+          <!-- Hitch -->
+          <rect x="6" y="50" width="14" height="8" rx="2" fill="#795548"/>
+          <!-- Front small wheel -->
+          <circle cx="102" cy="73" r="16" fill="#212121"/>
+          <circle cx="102" cy="73" r="9" fill="#424242"/>
+          <circle cx="102" cy="73" r="4" fill="#757575"/>
+          <line x1="102" y1="57" x2="102" y2="89" stroke="#616161" stroke-width="2.5"/>
+          <line x1="86" y1="73" x2="118" y2="73" stroke="#616161" stroke-width="2.5"/>
+          <!-- Back big wheel -->
+          <circle cx="38" cy="70" r="24" fill="#212121"/>
+          <circle cx="38" cy="70" r="13" fill="#424242"/>
+          <circle cx="38" cy="70" r="5" fill="#757575"/>
+          <line x1="38" y1="46" x2="38" y2="94" stroke="#616161" stroke-width="3"/>
+          <line x1="14" y1="70" x2="62" y2="70" stroke="#616161" stroke-width="3"/>
+          <line x1="21" y1="53" x2="55" y2="87" stroke="#616161" stroke-width="2.5"/>
+          <line x1="55" y1="53" x2="21" y2="87" stroke="#616161" stroke-width="2.5"/>
+          <!-- Headlight -->
+          <circle cx="108" cy="44" r="6" fill="#FFF176"/>
+          <circle cx="108" cy="44" r="3.5" fill="white"/>
+          <!-- Speed lines -->
+          <line x1="120" y1="52" x2="144" y2="49" stroke="white" stroke-width="2.5" opacity="0.6"/>
+          <line x1="120" y1="60" x2="148" y2="57" stroke="white" stroke-width="3" opacity="0.7"/>
+          <line x1="120" y1="68" x2="143" y2="66" stroke="white" stroke-width="2" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Wooden fence -->
+      <div class="fence-wrap">
+        <div class="fence-rail fence-rail-top"></div>
+        <div class="fence-rail fence-rail-bot"></div>
+        <div class="fence-post fp1"></div>
+        <div class="fence-post fp2"></div>
+        <div class="fence-post fp3"></div>
+        <div class="fence-post fp4"></div>
+        <div class="fence-post fp5"></div>
+        <div class="fence-post fp6"></div>
+        <div class="fence-post fp7"></div>
+        <div class="fence-post fp8"></div>
+      </div>
+    </div>
+
+    <!-- Layer 4: Flying items (pointer-events: none) -->
+    <div class="flying-layer" id="flyingLayer"></div>
+
+    <!-- Layer 5: Hero overlay -->
+    <div class="hero-overlay">
+      <div class="hero-logo-wrap">
+        <div class="hero-berry-icon">🍓</div>
+        <h1 class="hero-title">SUSTAINABERRY</h1>
+        <p class="hero-subtitle">Farm to Table &nbsp;·&nbsp; 100% Organic &nbsp;·&nbsp; Sustainably Grown</p>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-harvest-all" onclick="harvestAll()">🌾 Harvest All!</button>
+        <button class="btn-explore" onclick="scrollTo('about')">Explore Farm ↓</button>
+      </div>
+    </div>
+
+  </section>
+  <!-- ═══════════════ END FARM HERO ═══════════════ -->
+
+
+  <!-- ABOUT SECTION -->
+  <section class="section-about" id="about">
+    <div class="sign-board">
+      <h2>🌱 About Our Farm</h2>
+      <div class="sign-legs"><span></span><span></span></div>
+    </div>
+    <div class="cards-grid">
+      <div class="farm-card">
+        <div class="card-ico">🌿</div>
+        <h3>100% Organic</h3>
+        <p>All our berries grow without synthetic pesticides or GMOs. Pure, natural goodness from soil to shelf.</p>
+      </div>
+      <div class="farm-card">
+        <div class="card-ico">♻️</div>
+        <h3>Zero Waste</h3>
+        <p>Our closed-loop farming system ensures every part of every berry is used — from compost to packaging.</p>
+      </div>
+      <div class="farm-card">
+        <div class="card-ico">💧</div>
+        <h3>Water Smart</h3>
+        <p>Drip irrigation and rainwater harvesting cut our water usage by 60% versus traditional farming.</p>
+      </div>
+      <div class="farm-card">
+        <div class="card-ico">☀️</div>
+        <h3>Solar Powered</h3>
+        <p>100% of our farm runs on renewable solar energy. We give back more to the grid than we take.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BERRIES SECTION -->
+  <section class="section-berries" id="berries">
+    <div class="sign-board dark">
+      <h2>🍓 Our Berry Crops</h2>
+      <div class="sign-legs"><span></span><span></span></div>
+    </div>
+    <div class="plots-row">
+
+      <div class="plot-tile" onclick="openModal('raspberry')">
+        <div class="plot-soil">
+          <div class="plot-plant-emoji">🌿</div>
+          <div class="plot-berry-emoji">🍓</div>
+        </div>
+        <div class="plot-label">Raspberry</div>
+        <div class="plot-sub">Sweet &amp; Tart</div>
+      </div>
+
+      <div class="plot-tile plot-featured" onclick="openModal('blueberry')">
+        <div class="plot-badge">⭐ Best Seller</div>
+        <div class="plot-soil">
+          <div class="plot-plant-emoji">🌿</div>
+          <div class="plot-berry-emoji">🫐</div>
+        </div>
+        <div class="plot-label">Blueberry</div>
+        <div class="plot-sub">Antioxidant Rich</div>
+      </div>
+
+      <div class="plot-tile" onclick="openModal('strawberry')">
+        <div class="plot-soil">
+          <div class="plot-plant-emoji">🌿</div>
+          <div class="plot-berry-emoji">🍓</div>
+        </div>
+        <div class="plot-label">Strawberry</div>
+        <div class="plot-sub">Classic Favourite</div>
+      </div>
+
+      <div class="plot-tile" onclick="openModal('blackberry')">
+        <div class="plot-soil">
+          <div class="plot-plant-emoji">🌿</div>
+          <div class="plot-berry-emoji">🍇</div>
+        </div>
+        <div class="plot-label">Blackberry</div>
+        <div class="plot-sub">Bold &amp; Juicy</div>
+      </div>
+
+      <div class="plot-tile" onclick="openModal('cranberry')">
+        <div class="plot-soil">
+          <div class="plot-plant-emoji">🌿</div>
+          <div class="plot-berry-emoji">🍒</div>
+        </div>
+        <div class="plot-label">Cranberry</div>
+        <div class="plot-sub">Immune Boost</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MISSION SECTION -->
+  <section class="section-mission" id="mission">
+    <div class="mission-inner">
+      <div class="sign-board light">
+        <h2>🌍 Our Mission</h2>
+        <div class="sign-legs"><span></span><span></span></div>
+      </div>
+      <div class="mission-body">
+        <div class="mission-text">
+          <p class="mission-quote">"Every berry we grow is a promise to the planet."</p>
+          <p class="mission-para">At Sustainaberry, sustainability isn't a marketing term — it's the foundation of everything we do. From carbon-neutral shipping to regenerative soil practices, we're building a berry farm that gives back more than it takes.</p>
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-num">12M+</div><div class="stat-lbl">Berries Grown</div></div>
+            <div class="stat-box"><div class="stat-num">60%</div><div class="stat-lbl">Less Water</div></div>
+            <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">Carbon Neutral</div></div>
+            <div class="stat-box"><div class="stat-num">Zero</div><div class="stat-lbl">Pesticides</div></div>
+          </div>
+        </div>
+        <div class="mission-plant">
+          <div class="mp-wrap">
+            <div class="mp-stem"></div>
+            <div class="mp-leaf mp-leaf-l"></div>
+            <div class="mp-leaf mp-leaf-r"></div>
+            <div class="mp-berry">🍓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="farm-footer" id="footer">
+    <div class="footer-hills">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,55 Q360,0 720,45 Q1080,90 1440,25 L1440,100 L0,100 Z" fill="#1B5E20"/>
+      </svg>
+    </div>
+    <div class="footer-body">
+      <div class="footer-brand">
+        <span class="footer-berry">🍓</span>
+        <span class="footer-name">SUSTAINABERRY</span>
+      </div>
+      <p class="footer-tagline">Grow. Sustain. Thrive.</p>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">Facebook</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+      </div>
+      <p class="footer-copy">© 2025 Sustainaberry. All rights reserved. 🌱</p>
+    </div>
+  </footer>
+
+  <!-- Berry Detail Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div class="modal-berry-icon" id="modalIcon"></div>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-tags" id="modalTags"></div>
+      <button class="modal-order-btn">Order Now 🛒</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
