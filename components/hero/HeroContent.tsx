@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import { BRAND } from '@/lib/constants'
 import { fadeUpVariants } from '@/lib/animations'
@@ -12,7 +13,7 @@ export default function HeroContent() {
         className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 border-2"
         style={{ backgroundColor: 'rgba(233,30,140,0.2)', borderColor: 'rgba(233,30,140,0.5)' }}
       >
-        <span className="text-lg">🫐</span>
+        <Image src="/logo.jpg" alt="Sustainaberry" width={22} height={22} className="rounded-full object-cover" />
         <span className="text-sm font-medium" style={{ fontFamily: 'Nunito, sans-serif', color: '#FFF8F0' }}>Sustainaberry Farm</span>
       </motion.div>
 

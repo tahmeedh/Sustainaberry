@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { BRAND } from '@/lib/constants'
 
 export default function Footer() {
@@ -5,7 +6,7 @@ export default function Footer() {
     <footer className="py-12 px-6 text-center" style={{ backgroundColor: '#4A1942' }}>
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="text-3xl">🫐</span>
+          <Image src="/logo.jpg" alt="Sustainaberry" width={40} height={40} className="rounded-full object-cover" style={{ border: '2px solid rgba(233,30,140,0.5)' }} />
           <span className="text-2xl font-bold" style={{ fontFamily: 'Fredoka, sans-serif', color: '#FFF8F0' }}>Sustainaberry</span>
         </div>
         <p className="text-sm mb-6 max-w-lg mx-auto" style={{ fontFamily: 'Nunito, sans-serif', color: 'rgba(255,248,240,0.55)' }}>

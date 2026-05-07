@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(true)
@@ -33,9 +34,9 @@ export default function LoadingScreen() {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.2 }}
-            className="text-8xl mb-6 select-none"
+            className="mb-6 select-none"
           >
-            🫐
+            <Image src="/logo.jpg" alt="Sustainaberry" width={120} height={120} className="rounded-full object-cover" style={{ border: '3px solid rgba(233,30,140,0.5)' }} />
           </motion.div>
 
           <motion.h1
@@ -85,14 +86,16 @@ export default function LoadingScreen() {
             transition={{ delay: 0.8 }}
             className="flex gap-3 mt-8"
           >
-            {['🫐', '🍓', '🌱', '🍇', '🌾'].map((emoji, i) => (
+            {[null, '🍓', '🌱', '🍇', '🌾'].map((emoji, i) => (
               <motion.span
                 key={i}
-                className="text-xl"
+                className="text-xl flex items-center"
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 1, repeat: Infinity, delay: i * 0.15, ease: 'easeInOut' }}
               >
-                {emoji}
+                {emoji === null
+                  ? <Image src="/logo.jpg" alt="Sustainaberry" width={28} height={28} className="rounded-full object-cover" />
+                  : emoji}
               </motion.span>
             ))}
           </motion.div>
