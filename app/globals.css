@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Brand Colors */
+  --color-plum: #4A1942;
+  --color-plum-light: #6B2860;
+  --color-plum-dark: #2E0F28;
+  --color-berry-pink: #E91E8C;
+  --color-berry-pink-light: #F060A8;
+  --color-berry-pink-dark: #C01070;
+  --color-green-bright: #22C55E;
+  --color-green-bright-light: #4ADE80;
+  --color-green-bright-dark: #16A34A;
+  --color-sky-blue: #38BDF8;
+  --color-sky-blue-light: #7DD3FC;
+  --color-sky-blue-dark: #0EA5E9;
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #F5EDDF;
+  --color-earth-brown: #8B5E3C;
+  --color-earth-brown-light: #A67C52;
+  --color-earth-brown-dark: #6B4423;
+  --color-night: #1A0D2E;
+  --color-night-sky: #0F0A1E;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Fonts */
+  --font-heading: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Border Radius */
+  --radius-clay: 20px;
+  --radius-clay-sm: 12px;
+  --radius-clay-lg: 28px;
+
+  /* Shadows */
+  --shadow-clay: inset -2px -2px 8px rgba(0,0,0,0.10), 4px 6px 12px rgba(0,0,0,0.18);
+  --shadow-clay-hover: inset -2px -2px 8px rgba(0,0,0,0.10), 6px 10px 20px rgba(0,0,0,0.22);
+  --shadow-glow: 0 0 20px rgba(233,30,140,0.5), 0 0 40px rgba(233,30,140,0.2);
+  --shadow-glow-green: 0 0 20px rgba(34,197,94,0.5), 0 0 40px rgba(34,197,94,0.2);
+
+  /* Keyframes */
+  --animate-sway: sway 3s ease-in-out infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-coin-float: coin-float 1s ease-out forwards;
+  --animate-sparkle: sparkle 0.6s ease-out forwards;
+  --animate-flag-raise: flag-raise 0.4s ease-out forwards;
+  --animate-grow-crop: grow-crop 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  --animate-boot-progress: boot-progress 1.8s ease-in-out forwards;
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-1.5deg); }
+    50% { transform: rotate(1.5deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes coin-float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-80px) scale(0.5); opacity: 0; }
+  }
+  @keyframes sparkle {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1) rotate(180deg); opacity: 1; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+  }
+  @keyframes flag-raise {
+    0% { transform: translateY(8px); }
+    100% { transform: translateY(0px); }
+  }
+  @keyframes grow-crop {
+    0% { transform: scaleY(0); transform-origin: bottom; }
+    100% { transform: scaleY(1); transform-origin: bottom; }
+  }
+  @keyframes boot-progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
   }
 }
 
+/* CSS Variables for day/night theming */
+:root {
+  --sky-top: #87CEEB;
+  --sky-bottom: #B0E2FF;
+  --ground-color: #5D8A3C;
+}
+
+[data-theme="night"] {
+  --sky-top: #0F0A1E;
+  --sky-bottom: #1A0D2E;
+  --ground-color: #2D4A1F;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  background-color: #FFF8F0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fredoka', sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Utility classes */
+.clay-card {
+  border-radius: 20px;
+  border: 3px solid;
+  box-shadow: inset -2px -2px 8px rgba(0,0,0,0.10), 4px 6px 12px rgba(0,0,0,0.18);
+}
+
+.font-heading {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.font-body {
+  font-family: 'Nunito', sans-serif;
 }
