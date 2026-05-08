@@ -36,21 +36,41 @@ export default function TractorAnimation() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (!ref.current) return
-      gsap.set(ref.current, { x: -140 })
+
+      const startX = -140
+      const endX = window.innerWidth + 140
+      const travelWidth = endX - startX
+      const amplitude = 12
+      const baseY = 6
+
+      const getLandY = (x: number) => {
+        const t = (x - startX) / travelWidth
+        const angle = t * Math.PI * 2
+        return Math.cos(angle) * amplitude + baseY
+      }
+
+      gsap.set(ref.current, { x: startX, y: getLandY(startX), scaleX: -1 })
+
       gsap.to(ref.current, {
-        x: window.innerWidth + 140,
+        x: endX,
         duration: 14,
         delay: 3,
         repeat: -1,
         repeatDelay: 18,
         ease: 'none',
+        onUpdate: () => {
+          if (!ref.current) return
+          const computedX = gsap.getProperty(ref.current, 'x') as number
+          gsap.set(ref.current, { y: getLandY(computedX) })
+        },
       })
     })
+
     return () => ctx.revert()
   }, [])
 
   return (
-    <div ref={ref} className="absolute pointer-events-none" style={{ bottom: '18%', zIndex: 20 }}>
+    <div ref={ref} className="absolute pointer-events-none" style={{ bottom: '10%', zIndex: 20 }}>
       <TractorSVG />
     </div>
   )
